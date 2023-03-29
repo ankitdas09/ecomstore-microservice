@@ -8,7 +8,7 @@ export class Token {
     return signed;
   }
 
-  static verifyJWT(token: string): string | jwt.JwtPayload {
+  static verifyJWT(token: string): string | object {
     const verify = jwt.verify(token, process.env.JWT_KEY!);
     return verify;
   }

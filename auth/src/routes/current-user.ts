@@ -6,21 +6,16 @@ import { User } from "../models/user.model";
 import { BadRequestError } from "../errors/bad-request-error";
 import { Password } from "../services/password";
 import { Token } from "../services/token";
+import { currentUser } from "../middlewares/current-user";
+import { requireAuth } from "../middlewares/require-auth";
 
 const router = express.Router();
 
 router.get(
   "/api/users/currentuser",
+  currentUser,
   async (req: Request, res: Response, next: NextFunction) => {
-    if (!req.session?.jwt) {
-      return res.send({ currentUser: null });
-    }
-    try {
-      const decoded = Token.verifyJWT(req.session.jwt);
-      return res.send({ currentUser: decoded });
-    } catch (error) {
-      return res.send({ currentUser: null });
-    }
+    return res.send({ currentUser: req.currentUser || null });
   }
 );
 
