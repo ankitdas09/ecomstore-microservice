@@ -1,0 +1,6 @@
+[submodule "ankitdcr-common"]
+	path = ankitdcr-common
+	url = https://github.com/ankitdas09/ankitdcr-common
+[submodule "common"]
+	path = common
+	url = https://github.com/ankitdas09/ankitdcr-common
