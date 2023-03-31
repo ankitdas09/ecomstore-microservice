@@ -1,7 +1,26 @@
 import React from "react";
+import buildClient from "../api/build-client";
 
-const index = () => {
-  return <div>Hello world</div>;
+const LandingProps = ({ currentUser }) => {
+  return (
+    <div>
+      {currentUser ? (
+        <h1>You are signed in</h1>
+      ) : (
+        <h1>You are not signed in</h1>
+      )}
+    </div>
+  );
 };
 
-export default index;
+LandingProps.getInitialProps = async function (context) {
+  try {
+    const client = buildClient(context);
+    const { data } = await client.get("/api/users/currentUser");
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+export default LandingProps;
