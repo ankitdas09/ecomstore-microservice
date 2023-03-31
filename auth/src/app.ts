@@ -1,6 +1,6 @@
 import express from "express";
 import { signinRouter } from "./routes/signin";
-import errorHandler from "./middlewares/error-handler";
+import { errorHandler } from "@ankitdcr/common";
 import "express-async-errors";
 
 import { signupRouter } from "./routes/signup";

@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import { User } from "../models/user.model";
-import { BadRequestError } from "../errors/bad-request-error";
+import { BadRequestError } from "@ankitdcr/common";
 import { Token } from "../services/token";
-import { validateRequest } from "../middlewares/validate-request";
+import { validateRequest } from "@ankitdcr/common";
 
 const router = express.Router();
 
