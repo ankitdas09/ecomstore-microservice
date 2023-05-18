@@ -6,7 +6,7 @@ async function start() {
     throw new Error("[ENV] JWT KEY NOT FOUND!");
   }
   if (!process.env.MONGO_URI) {
-    throw new Error("[ENV] MONGO URI NOT FOUND!");
+    throw new Error("[ENV] MONGO_URI NOT FOUND!");
   }
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -15,7 +15,7 @@ async function start() {
     console.error(error);
   }
   app.listen(3000, () => {
-    console.log("[listening] AUTH ON 3000");
+    console.log("[listening] TICKETS ON 3000");
   });
 }
 start();
